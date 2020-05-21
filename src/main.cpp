@@ -87,16 +87,11 @@ bool checkObjectName(std::string obj)
 
 void removeTempFile(bool assembleVerbose)
 {
-    //  If we assembled a project, we need to clean the temp file
-    //
-    if(assembleProject)
+    auto file_path = std::filesystem::path(TEMP_FILE_NAME);
+    
+    if(!std::filesystem::remove(TEMP_FILE_NAME))
     {
-        auto file_path = std::filesystem::path(TEMP_FILE_NAME);
-        
-        if(!std::filesystem::remove(TEMP_FILE_NAME))
-        {
-            if(assembleVerbose) { std::cout << "Failed to remove temporary file from project builder" << std::endl; }
-        }
+        if(assembleVerbose) { std::cout << "Failed to remove temporary file from project builder" << std::endl; }
     }
 }
 
