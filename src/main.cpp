@@ -1,5 +1,5 @@
-#include <nabla/assembler.hpp>
-#include <nabla/json.hpp>
+#include <libnabla/assembler.hpp>
+#include <libnabla/json.hpp>
 
 #include <algorithm>
 #include <fstream>

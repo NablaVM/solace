@@ -4,12 +4,12 @@ project(SolaceApp)
 
 set(CMAKE_CXX_STANDARD 17)
 
-find_package(nabla REQUIRED)
+find_package(libnabla REQUIRED)
 
-include_directories(${NABLA_INCLUDE_DIRS})
+include_directories(${LIBNABLA_INCLUDE_DIRS})
 
 set(ASSEMBLER_SOURCES
-    ${NABLA_LIBRARIES}
+    ${LIBNABLA_LIBRARIES}
 )
 
 add_custom_target(copy-solace-asm ALL
