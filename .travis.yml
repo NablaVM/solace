@@ -22,6 +22,10 @@ before_install:
   - mkdir $PARENTDIR/build-release
 
   - bash install_cpputest.sh
+
+  - export CC=gcc-9
+  - export CXX=g++-9
+
   - bash install_libnabla.sh
 
   - cd $PARENTDIR
@@ -29,9 +33,6 @@ before_install:
 install:
 
 script:
-  - export CC=gcc-9
-  - export CXX=g++-9
-
   - cd $PARENTDIR/build-release
   - cmake $PARENTDIR/src -DCMAKE_BUILD_TYPE=Release
   - make -j9
