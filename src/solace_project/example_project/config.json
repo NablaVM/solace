@@ -1,0 +1,8 @@
+{
+    "entry": "main.asm",
+    "support": [
+      "host/host.asm",
+      "io/printer.asm",
+      "math/math.asm"
+      ]
+}
