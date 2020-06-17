@@ -23,11 +23,13 @@
 
     call copy           ; Allocates a new address and copys data to it from existing item in DS
 
-    ldw r0 $0(gs)       ; Load ADDRESS_ONE for free
-    call free           ; Free address in r0
+  ;  ldw r0 $0(gs)       ; Load ADDRESS_ONE for free
+  ;  call free           ; Free address in r0
 
-    ldw r0 $8(gs)       ; Load ADDRESS_TWO for free
-    call free           ; Free address in r0
+  ;  ldw r0 $8(gs)       ; Load ADDRESS_TWO for free
+  ;  call free           ; Free address in r0
+
+    call reset
 >
 
 <alloc:
@@ -158,3 +160,11 @@ failed:
     exit
 >
 
+<reset:
+    mov r11 r0          ; Move address into r11
+
+    lsh r0 $13 $56      ; Move DS id into position
+    lsh r1 $50 $48      ; Move sub-id for 'free' into position
+    or r10 r0 r1        ; Or together to create command into r10
+    ret
+>
